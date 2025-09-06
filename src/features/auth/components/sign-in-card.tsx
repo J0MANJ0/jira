@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
+import { signUpWithGithub, signUpWithGoogle } from '@/lib/oauth';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '@/components/ui/input';
@@ -42,7 +43,7 @@ export const SignInCard = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <Card className='w-full h-full md:w-[487px] border-none shadow-none]'>
+      <Card className='w-full h-full md:w-[487px] border-none shadow-none'>
         <CardHeader className='flex items-center justify-center text-center p-7'>
           <CardTitle className='text-2xl'>Welcome back</CardTitle>
         </CardHeader>
@@ -96,11 +97,21 @@ export const SignInCard = () => {
           <DottedSeparator />
         </div>
         <CardContent className='p-7 flex flex-col gap-y-4'>
-          <Button variant='secondary' className='w-full' disabled={isPending}>
+          <Button
+            variant='secondary'
+            className='w-full'
+            disabled={isPending}
+            onClick={() => signUpWithGoogle()}
+          >
             <FcGoogle className='mr-2 size-5' />
             Login with Google
           </Button>
-          <Button variant='secondary' className='w-full' disabled={isPending}>
+          <Button
+            variant='secondary'
+            className='w-full'
+            disabled={isPending}
+            onClick={() => signUpWithGithub()}
+          >
             <FaGithub className='mr-2 size-5' />
             Login with Github
           </Button>

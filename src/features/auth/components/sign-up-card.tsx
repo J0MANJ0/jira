@@ -23,6 +23,7 @@ import { Input } from '@/components/ui/input';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
+import { signUpWithGithub, signUpWithGoogle } from '@/lib/oauth';
 import { motion } from 'framer-motion';
 import { registerSchema } from '../schemas';
 import { useRegister } from '../api/use-register';
@@ -47,7 +48,7 @@ export const SignUpCard = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <Card className='w-full h-full md:w-[487px] border-none shadow-none]'>
+      <Card className='w-full h-full md:w-[487px] border-none shadow-none'>
         <CardHeader className='flex items-center justify-center text-center p-7'>
           <CardTitle className='text-2xl'>Sign Up</CardTitle>
           <CardDescription>
@@ -128,11 +129,21 @@ export const SignUpCard = () => {
           <DottedSeparator />
         </div>
         <CardContent className='p-7 flex flex-col gap-y-4'>
-          <Button variant='secondary' className='w-full' disabled={isPending}>
+          <Button
+            variant='secondary'
+            className='w-full'
+            disabled={isPending}
+            onClick={() => signUpWithGoogle()}
+          >
             <FcGoogle className='mr-2 size-5' />
             Sign Up with Google
           </Button>
-          <Button variant='secondary' className='w-full' disabled={isPending}>
+          <Button
+            variant='secondary'
+            className='w-full'
+            disabled={isPending}
+            onClick={() => signUpWithGithub()}
+          >
             <FaGithub className='mr-2 size-5' />
             Sign Up with Github
           </Button>

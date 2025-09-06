@@ -1,17 +1,17 @@
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
-interface MembersAvatarProps {
+interface MemberAvatarProps {
   name: string;
   className?: string;
   fallBackClassName?: string;
 }
 
-export const MembersAvatar = ({
+export const MemberAvatar = ({
   fallBackClassName,
   name,
   className,
-}: MembersAvatarProps) => {
+}: MemberAvatarProps) => {
   return (
     <Avatar
       className={cn(

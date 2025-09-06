@@ -54,7 +54,7 @@ export const EditWorkspaceForm = ({
 
   const [ResetDialog, confirmReset] = useConfirm(
     'Reset invite link',
-    'This will inavalidate the current invite link.',
+    'This will invalidate the current invite link.',
     'destructive'
   );
 

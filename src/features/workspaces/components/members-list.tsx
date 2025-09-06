@@ -13,12 +13,13 @@ import Link from 'next/link';
 import { DottedSeparator } from '@/components/dotted-separator';
 import { useGetMembers } from '@/features/members/api/use-get-members';
 import { Fragment } from 'react';
-import { MembersAvatar } from '@/features/members/components/member-avatar';
+import { MemberAvatar } from '@/features/members/components/member-avatar';
 import { useConfirm } from '@/hooks/use-confirm';
 import { Separator } from '@/components/ui/separator';
 import { useDeleteMember } from '@/features/members/api/use-delete-member';
 import { useUpdateMember } from '@/features/members/api/use-update-member';
 import { MemberRole } from '@/features/members/types';
+
 export const MembersList = () => {
   const workspaceId = useWorkspaceId();
   const { data } = useGetMembers({ workspaceId });
@@ -73,7 +74,7 @@ export const MembersList = () => {
         {data?.documents.map((member, i) => (
           <Fragment key={member.$id}>
             <div className='flex items-center gap-2'>
-              <MembersAvatar
+              <MemberAvatar
                 className='size-10'
                 fallBackClassName='text-lg'
                 name={member.name}
